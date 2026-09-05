@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
+  body { @apply bg-white font-texte text-encre antialiased; }
+  html[dir="rtl"] body { @apply font-arabe; }
+  h1, h2, h3 { @apply font-titre; }
+  html[dir="rtl"] h1, html[dir="rtl"] h2, html[dir="rtl"] h3 { @apply font-arabe; }
+  :focus-visible { @apply outline-none ring-2 ring-vert ring-offset-2; }
+}
+
+@layer components {
+  .conteneur { @apply mx-auto w-full max-w-6xl px-5 sm:px-6; }
+
+  .btn { @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3
+          text-sm font-semibold transition-colors duration-200; }
+  .btn-primaire  { @apply btn bg-vert-fonce text-white hover:bg-foret; }
+  .btn-foret     { @apply btn bg-foret text-white hover:bg-foret-fonce; }
+  .btn-contour   { @apply btn border border-bord bg-white text-foret hover:border-vert hover:text-vert; }
+  .btn-fantome   { @apply btn border border-white/30 text-white hover:bg-white/10; }
+
+  .carte { @apply rounded-xl2 border border-bord bg-white p-7 shadow-douce
+            transition-shadow duration-300 hover:shadow-relief; }
+
+  .titre-section { @apply font-titre text-3xl font-semibold leading-tight text-foret sm:text-4xl; }
+  .sous-titre    { @apply mt-3 max-w-2xl text-base leading-relaxed text-encre-doux; }
+
+  .champ { @apply w-full rounded-xl border border-bord bg-white px-4 py-3 text-sm
+            placeholder:text-encre-tres focus:border-vert focus:outline-none
+            focus:ring-1 focus:ring-vert; }
+  .champ-invalide { @apply border-jaune-fonce bg-jaune-pale; }
+
+  .etiquette { @apply inline-flex items-center gap-2 rounded-full border border-bord
+                bg-white/90 px-4 py-2 text-xs font-medium text-foret; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
